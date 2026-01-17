@@ -36,6 +36,39 @@ namespace RSL.Robots
                 return;
             }
 
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Install All", GUILayout.Height(25)))
+            {
+                List<string> allToInstall = new List<string>();
+                foreach (var robot in db.robotPackages.Values)
+                {
+                    if (!RobotDatabase.IsInstalled(robot.id))
+                    {
+                        allToInstall.Add(robot.url);
+                    }
+                }
+                if (allToInstall.Count > 0)
+                {
+                    RobotInstallerQueue.AddToQueue(allToInstall);
+                }
+            }
+
+            if (GUILayout.Button("Remove All", GUILayout.Height(25)))
+            {
+                if (EditorUtility.DisplayDialog("Confirm Remove All", "Are you sure you want to uninstall all robots?", "Yes", "No"))
+                {
+                    foreach (var robot in db.robotPackages.Values)
+                    {
+                        if (RobotDatabase.IsInstalled(robot.id))
+                        {
+                            db.UninstallRobot(robot.id);
+                        }
+                    }
+                }
+            }
+            GUILayout.EndHorizontal();
+            GUILayout.Space(10);
+
 
             foreach (RobotPackage robot in db.robotPackages.Values)
             {
@@ -51,6 +84,14 @@ namespace RSL.Robots
                     GUI.color = Color.green;
                     GUILayout.Label("✓ Installed", GUILayout.Width(80));
                     GUI.color = Color.white;
+                    
+                    if (GUILayout.Button("Uninstall", GUILayout.Width(80)))
+                    {
+                        if (EditorUtility.DisplayDialog("Confirm Uninstall", $"Are you sure you want to uninstall {robot.name}?", "Yes", "No"))
+                        {
+                            db.UninstallRobot(robot.id);
+                        }
+                    }
                 }
                 else
                 {
@@ -131,10 +172,7 @@ namespace RSL.Robots
                 return;
             }
 
-            Debug.Log($"[UPM] Installation order determined for '{robotPackageId}': {string.Join(", ", installOrder)}");
-
             RobotInstallerQueue.AddToQueue(installOrder);
-
         }
 
         public List<string> GetInstallationOrder(string targetId)
@@ -152,9 +190,7 @@ namespace RSL.Robots
                 if (pkg.dependencies != null)
                 {
                     foreach (string depId in pkg.dependencies)
-                    {
                         Resolve(depId);
-                    }
                 }
 
                 if (!IsInstalled(id))
@@ -166,6 +202,42 @@ namespace RSL.Robots
             Resolve(targetId);
             return orderedUrls;
         }
+
+        public void UninstallRobot(string robotPackageId)
+        {
+            if (!IsInstalled(robotPackageId))
+            {
+            Debug.Log($"[UPM] Robot '{robotPackageId}' is not installed.");
+            return;
+            }
+
+            List<string> dependenciesToRemove = new List<string>();
+            GetDependencies(robotPackageId, dependenciesToRemove);
+            dependenciesToRemove.Reverse(); // Uninstall dependencies in reverse order
+            foreach (string depId in dependenciesToRemove)
+            {
+                if (IsInstalled(depId))
+                {
+                    UnityEditor.PackageManager.Client.Remove(depId);
+                }
+            }
+
+            RefreshDatabase();
+        }
+
+        private void GetDependencies(string packageId, List<string> dependencies)
+        {
+            foreach (var robot in robotPackages.Values)
+            {
+                if (robot.dependencies != null && robot.dependencies.Contains(packageId))
+                {
+                    dependencies.Add(robot.id);
+                    GetDependencies(robot.id, dependencies);
+                }
+            }
+            dependencies.Add(packageId);
+        }
+        
 
         public static bool IsInstalled(string packageId)
         {

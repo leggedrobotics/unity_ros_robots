@@ -38,13 +38,13 @@
         {
             "id": "com.leggedrobotics.ros.robots.fourier.gr2",
             "name": "GR2",
-            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=GR2",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=Gr2",
             "dependencies": []
         },
         {
             "id": "com.leggedrobotics.ros.robots.hands.pysonic",
             "name": "Pysonic Hand",
-            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=PysonicAbilityHand",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=PsyonicAbilityHand",
             "dependencies": []
         },
         {
