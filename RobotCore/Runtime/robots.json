@@ -52,15 +52,6 @@
             "name": "Spot",
             "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=Spot",
             "dependencies": []
-        },
-        {
-            "id": "com.leggedrobotics.ros.robots.anymal.tytan",
-            "name": "Tytan",
-            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=Tytan",
-            "dependencies": [
-                "com.leggedrobotics.ros.robots.anymal.d",
-                "com.leggedrobotics.ros.robots.dynaarm"
-            ]
         }
     ]
 }

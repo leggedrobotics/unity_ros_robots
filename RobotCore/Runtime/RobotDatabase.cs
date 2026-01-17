@@ -126,20 +126,19 @@ namespace RSL.Robots
 
 #endif
 
+[System.Serializable]
+public struct RobotEntry
+{
+    public string name;
+    public string rootFrame;
+    public Sprite icon;
+    public GameObject prefab;
+}
+
     [CreateAssetMenu(fileName = "RobotDatabase", menuName = "Robots/RobotDatabase")]
     public class RobotDatabase : ScriptableObject
     {
-        [System.Serializable]
-        public struct RobotEntry
-        {
-            public string name;
-            public string rootFrame;
-            public Sprite icon;
-            public GameObject prefab;
-        }
-
-
-        public List<RobotEntry> allRobots = new List<RobotEntry>();
+                public List<RobotEntry> robots = new List<RobotEntry>();
         public Dictionary<string, RobotPackage> robotPackages = new Dictionary<string, RobotPackage>();
 
         #if UNITY_EDITOR
@@ -247,7 +246,7 @@ namespace RSL.Robots
 
         public void RefreshDatabase()
         {
-            allRobots.Clear();
+            robots.Clear();
 
             List<string> searchFolders = new List<string> { "Assets" };
 
@@ -268,7 +267,7 @@ namespace RSL.Robots
                 
                 if (prefab != null && prefab.TryGetComponent<RobotInfo>(out var robotData))
                 {
-                    allRobots.Add(new RobotEntry
+                    robots.Add(new RobotEntry
                     {
                         name = robotData.robotName,
                         rootFrame = robotData.rootFrame,
@@ -281,7 +280,6 @@ namespace RSL.Robots
 
             EditorUtility.SetDirty(this);
             AssetDatabase.SaveAssets();
-            Debug.Log($"Database Refreshed: Found {allRobots.Count} robots.");
         }
         #endif
     }
