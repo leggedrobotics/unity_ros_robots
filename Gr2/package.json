@@ -1,0 +1,15 @@
+{
+  "name": "com.leggedrobotics.ros.robots.gr2",
+  "version": "1.0.0",
+  "displayName": "Robot - GR2",
+  "description": "The GR2 robot as cleaned up Unity-ready model.",
+  "unity": "2022.3",
+  "keywords": [
+    "robot",
+    "humanoid"
+  ],
+  "hideInEditor": false,
+  "dependencies": {
+    
+  }
+}

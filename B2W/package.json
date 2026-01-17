@@ -1,0 +1,16 @@
+{
+  "name": "com.leggedrobotics.ros.robots.b2w",
+  "version": "1.0.0",
+  "displayName": "Robot - B2W",
+  "description": "The B2W robot as cleaned up Unity-ready model.",
+  "unity": "2022.3",
+  "keywords": [
+    "robot",
+    "wheeled",
+    "legged"
+  ],
+  "hideInEditor": false,
+  "dependencies": {
+    
+  }
+}

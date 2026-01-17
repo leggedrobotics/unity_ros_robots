@@ -1,0 +1,16 @@
+{
+  "name": "com.leggedrobotics.ros.robots.anymal.tytan",
+  "version": "1.0.0",
+  "displayName": "Robot - Tytan",
+  "description": "The Tytan robot as cleaned up Unity-ready model.",
+  "unity": "2022.3",
+  "keywords": [
+    "robot",
+    "arm",
+    "legged"
+  ],
+  "hideInEditor": false,
+  "dependencies": {
+    
+  }
+}

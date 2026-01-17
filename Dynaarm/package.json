@@ -1,0 +1,15 @@
+{
+  "name": "com.leggedrobotics.ros.robots.dynaarm",
+  "version": "1.0.0",
+  "displayName": "Robot - Dynaarm",
+  "description": "The Dynaarm robot arm as cleaned up Unity-ready model.",
+  "unity": "2022.3",
+  "keywords": [
+    "robot",
+    "arm"
+  ],
+  "hideInEditor": false,
+  "dependencies": {
+    
+  }
+}

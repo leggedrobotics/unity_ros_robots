@@ -1,0 +1,15 @@
+{
+  "name": "com.leggedrobotics.ros.robots.franka",
+  "version": "1.0.0",
+  "displayName": "Robot - Franka Panda Arm",
+  "description": "The Franka Panda arm as cleaned up Unity-ready model.",
+  "unity": "2022.3",
+  "keywords": [
+    "robot",
+    "arm"
+  ],
+  "hideInEditor": false,
+  "dependencies": {
+    
+  }
+}

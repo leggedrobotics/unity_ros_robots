@@ -1,0 +1,15 @@
+{
+  "name": "com.leggedrobotics.ros.robots.spot",
+  "version": "1.0.0",
+  "displayName": "Robot - Spot",
+  "description": "The Spot robot as cleaned up Unity-ready model.",
+  "unity": "2022.3",
+  "keywords": [
+    "robot",
+    "legged"
+  ],
+  "hideInEditor": false,
+  "dependencies": {
+    
+  }
+}

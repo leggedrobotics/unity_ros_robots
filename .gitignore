@@ -1,0 +1,16 @@
+# VSCode
+.vscode/
+*.code-workspace
+
+# Unity
+Temp/
+UserSettings/
+*.csproj
+*.sln
+*.unityproj
+*.asset
+*.scene
+Thumbs.db
+.DS_Store
+*.exe
+*.app

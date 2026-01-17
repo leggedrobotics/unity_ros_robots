@@ -1,0 +1,16 @@
+{
+  "name": "com.leggedrobotics.ros.robots.anymal.alma",
+  "version": "1.0.0",
+  "displayName": "Robot - Alma",
+  "description": "The Alma robot as cleaned up Unity-ready model.",
+  "unity": "2022.3",
+  "keywords": [
+    "robot",
+    "arm",
+    "legged"
+  ],
+  "hideInEditor": false,
+  "dependencies": {
+    
+  }
+}
