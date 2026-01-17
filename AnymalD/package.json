@@ -1,6 +1,6 @@
 {
   "name": "com.leggedrobotics.ros.robots.anymal.d",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "displayName": "Robot - Anymal D",
   "description": "The Anymal D robot as cleaned up Unity-ready model.",
   "unity": "2022.3",

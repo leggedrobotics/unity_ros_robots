@@ -1,6 +1,6 @@
 {
   "name": "com.leggedrobotics.ros.robots.dynaarm",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "displayName": "Robot - Dynaarm",
   "description": "The Dynaarm robot arm as cleaned up Unity-ready model.",
   "unity": "2022.3",
@@ -10,6 +10,6 @@
   ],
   "hideInEditor": false,
   "dependencies": {
-    
+    "com.leggedrobotics.ros.robots.hands.pysonic": "git@github.com:leggedrobotics/unity_ros_robots.git?path=PsyonicAbilityHand"
   }
 }
