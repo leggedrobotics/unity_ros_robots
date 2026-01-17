@@ -1,5 +1,5 @@
 {
-  "name": "com.leggedrobotics.ros.robots.b2w",
+  "name": "com.leggedrobotics.ros.robots.unitree.b2w",
   "version": "0.9.0",
   "displayName": "Robot - B2W",
   "description": "The B2W robot as cleaned up Unity-ready model.",

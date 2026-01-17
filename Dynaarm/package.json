@@ -10,6 +10,6 @@
   ],
   "hideInEditor": false,
   "dependencies": {
-    "com.leggedrobotics.ros.robots.hands.pysonic": "git@github.com:leggedrobotics/unity_ros_robots.git?path=PsyonicAbilityHand"
+    "com.leggedrobotics.ros.robots.hands.pysonic": "0.9.0"
   }
 }

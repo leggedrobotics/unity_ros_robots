@@ -1,0 +1,13 @@
+{
+  "name": "com.leggedrobotics.ros.robots.core",
+  "version": "0.9.0",
+  "displayName": "Robot - Core",
+  "description": "The Core robot tools to install more robots and link to the project.",
+  "unity": "2022.3",
+  "keywords": [
+    "robot"
+  ],
+  "hideInEditor": false,
+  "dependencies": {
+  }
+}

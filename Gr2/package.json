@@ -1,5 +1,5 @@
 {
-  "name": "com.leggedrobotics.ros.robots.gr2",
+  "name": "com.leggedrobotics.ros.robots.fourier.gr2",
   "version": "0.9.0",
   "displayName": "Robot - GR2",
   "description": "The GR2 robot as cleaned up Unity-ready model.",

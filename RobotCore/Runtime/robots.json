@@ -1,0 +1,66 @@
+{
+    "robots": [
+        {
+            "id": "com.leggedrobotics.ros.robots.anymal.alma",
+            "name": "Alma",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=Alma",
+            "dependencies": [
+                "com.leggedrobotics.ros.robots.anymal.d",
+                "com.leggedrobotics.ros.robots.dynaarm"
+            ]
+        },
+        {
+            "id": "com.leggedrobotics.ros.robots.anymal.d",
+            "name": "Anymal D",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=AnymalD",
+            "dependencies": []
+        },
+        {
+            "id": "com.leggedrobotics.ros.robots.unitree.b2w",
+            "name": "B2W",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=B2W",
+            "dependencies": []
+        },
+        {
+            "id": "com.leggedrobotics.ros.robots.dynaarm",
+            "name": "Dynaarm",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=Dynaarm",
+            "dependencies": [
+                "com.leggedrobotics.ros.robots.hands.pysonic"
+            ]
+        },
+        {
+            "id": "com.leggedrobotics.ros.robots.franka.panda",
+            "name": "Franka Panda",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=FrankaPanda",
+            "dependencies": []
+        },
+        {
+            "id": "com.leggedrobotics.ros.robots.fourier.gr2",
+            "name": "GR2",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=GR2",
+            "dependencies": []
+        },
+        {
+            "id": "com.leggedrobotics.ros.robots.hands.pysonic",
+            "name": "Pysonic Hand",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=PysonicAbilityHand",
+            "dependencies": []
+        },
+        {
+            "id": "com.leggedrobotics.ros.robots.spot",
+            "name": "Spot",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=Spot",
+            "dependencies": []
+        },
+        {
+            "id": "com.leggedrobotics.ros.robots.anymal.tytan",
+            "name": "Tytan",
+            "url": "git@github.com:leggedrobotics/unity_ros_robots.git?path=Tytan",
+            "dependencies": [
+                "com.leggedrobotics.ros.robots.anymal.d",
+                "com.leggedrobotics.ros.robots.dynaarm"
+            ]
+        }
+    ]
+}
