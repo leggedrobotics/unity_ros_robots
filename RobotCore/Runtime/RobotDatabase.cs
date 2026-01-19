@@ -133,6 +133,11 @@ public struct RobotEntry
     public string rootFrame;
     public Sprite icon;
     public GameObject prefab;
+
+    public override string ToString()
+    {
+        return name;
+    }
 }
 
     [CreateAssetMenu(fileName = "RobotDatabase", menuName = "Robots/RobotDatabase")]
