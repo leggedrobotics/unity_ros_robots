@@ -256,7 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RobotInfo
   robotName: Panda
   rootFrame: odom
-  robotSprite: {fileID: 0}
+  robotSprite: {fileID: 3286163911610860551, guid: f65339488e7bd50498c5dd82cbbc87ec, type: 3}
 --- !u!1 &2657552042670183596
 GameObject:
   m_ObjectHideFlags: 0

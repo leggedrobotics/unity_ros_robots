@@ -16,15 +16,23 @@ namespace RSL.Robots
     {
         public override void OnInspectorGUI()
         {
-            DrawDefaultInspector(); // Draw the list of robots
 
             RobotDatabase db = (RobotDatabase)target;
 
-            GUILayout.Space(10);
-            if (GUILayout.Button("Scan for Robots (ros.robots.*)", GUILayout.Height(30)))
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Refresh Catalog", GUILayout.Height(30)))
+            {
+                db.RefreshCatalogs();
+            }
+            if (GUILayout.Button("Scan for Robots", GUILayout.Height(30)))
             {
                 db.RefreshDatabase();
             }
+            GUILayout.EndHorizontal();
+            GUILayout.Space(10);
+
+            DrawDefaultInspector(); // Draw the list of robots
+
 
             GUILayout.Space(10);
             GUILayout.Label("Robot Package Catalog", EditorStyles.boldLabel);
@@ -126,43 +134,39 @@ namespace RSL.Robots
 
 #endif
 
-[System.Serializable]
-public struct RobotEntry
-{
-    public string name;
-    public string rootFrame;
-    public Sprite icon;
-    public GameObject prefab;
-
-    public override string ToString()
+    [System.Serializable]
+    public struct RobotEntry
     {
-        return name;
+        public string name;
+        public string rootFrame;
+        public Sprite icon;
+        public GameObject prefab;
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
-}
 
     [CreateAssetMenu(fileName = "RobotDatabase", menuName = "Robots/RobotDatabase")]
     public class RobotDatabase : ScriptableObject
     {
-                public List<RobotEntry> robots = new List<RobotEntry>();
+        public List<TextAsset> robotCatalogs;
+        public List<RobotEntry> robots = new List<RobotEntry>();
         public Dictionary<string, RobotPackage> robotPackages = new Dictionary<string, RobotPackage>();
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         public void OnEnable()
         {// Inside your ScriptableObject or Editor script
             string packageId = "com.leggedrobotics.ros.robots.core";
             string relativePath = "Runtime/robots.json";
             string unityPath = $"Packages/{packageId}/{relativePath}";
 
+            robotCatalogs = new List<TextAsset>();
+
             if (File.Exists(unityPath))
             {
-                string jsonContent = File.ReadAllText(unityPath);
-                var robotPackagesData = JsonUtility.FromJson<RobotPackageList>(jsonContent);
-                robotPackages = new Dictionary<string, RobotPackage>();
-                foreach (var robot in robotPackagesData.robots)
-                {
-                    robotPackages[robot.id] = robot;
-                    
-                }
+                robotCatalogs.Add(AssetDatabase.LoadAssetAtPath<TextAsset>(unityPath));
             }
             RobotInstallerQueue.OnQueueCompleted += RefreshDatabase;
         }
@@ -249,6 +253,19 @@ public struct RobotEntry
             return packages != null && System.Array.Exists(packages, p => p.name == packageId);
         }
 
+        public void RefreshCatalogs()
+        {
+            foreach(TextAsset file in robotCatalogs)
+            {
+                var robotPackagesData = JsonUtility.FromJson<RobotPackageList>(file.text);
+                robotPackages = new Dictionary<string, RobotPackage>();
+                foreach (var robot in robotPackagesData.robots)
+                {
+                    robotPackages[robot.id] = robot;                
+                }
+            }
+        }
+
         public void RefreshDatabase()
         {
             robots.Clear();
@@ -286,6 +303,12 @@ public struct RobotEntry
             EditorUtility.SetDirty(this);
             AssetDatabase.SaveAssets();
         }
-        #endif
+
+        public void OnValidate()
+        {
+            RefreshCatalogs();
+            // RefreshDatabase();
+        }
+#endif
     }
 }

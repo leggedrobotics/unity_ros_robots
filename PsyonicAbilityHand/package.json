@@ -1,6 +1,6 @@
 {
   "name": "com.leggedrobotics.ros.robots.hands.pysonic",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "displayName": "Robot - Psyonic Ability Hand",
   "description": "The Psyonic Ability Hand as cleaned up Unity-ready model.",
   "unity": "2022.3",

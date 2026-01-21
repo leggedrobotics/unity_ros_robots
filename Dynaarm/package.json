@@ -1,6 +1,6 @@
 {
   "name": "com.leggedrobotics.ros.robots.dynaarm",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "displayName": "Robot - Dynaarm",
   "description": "The Dynaarm robot arm as cleaned up Unity-ready model.",
   "unity": "2022.3",
@@ -10,6 +10,6 @@
   ],
   "hideInEditor": false,
   "dependencies": {
-    "com.leggedrobotics.ros.robots.hands.pysonic": "0.9.0"
+    "com.leggedrobotics.ros.robots.hands.pysonic": "1.0.0"
   }
 }
